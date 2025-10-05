@@ -32,8 +32,8 @@
             <nav class="flex space-x-6">
               <% if user_signed_in? %>
                 <%= button_to "Home", root_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
-                <%= button_to "Browse", "#", method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
-                <%= button_to "Rentals", "#", method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
+                <%= button_to "Browse", books_index_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
+                <%= button_to "My Rentals", "#", method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
                 <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "text-gray-100 hover:text-white cursor-pointer" %>
               <% else %>
                 <%= button_to "Sign In", new_user_session_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
