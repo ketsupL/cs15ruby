@@ -27,12 +27,13 @@
       <header class="fixed top-0 left-0 w-full bg-red-400 shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <h1 class="text-xl font-semibold">
-            <%= link_to (content_for(:title) || "CS15 Bookstore"), root_path, class: "text-gray-100 hover:text-white" %>
+            <%= link_to (content_for(:title) || "CS15 Bookstore"), root_path, method: :get, class: "text-gray-100 hover:text-white" %>
           </h1>
             <nav class="flex space-x-6">
-              <%= button_to "Home", root_path, class: "text-gray-100 hover:text-white cursor-pointer" %>
-              <%= button_to "About", "#", class: "text-gray-100 hover:text-white cursor-pointer" %>
               <% if user_signed_in? %>
+                <%= button_to "Home", root_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
+                <%= button_to "Browse", "#", method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
+                <%= button_to "Rentals", "#", method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
                 <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "text-gray-100 hover:text-white cursor-pointer" %>
               <% else %>
                 <%= button_to "Sign In", new_user_session_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>

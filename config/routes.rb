@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "rentals/index"
+  get "books/index"
 
   root "home#index"
 
