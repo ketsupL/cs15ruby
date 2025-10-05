@@ -13,19 +13,51 @@ BookCopy.destroy_all
 Book.destroy_all
 
 book1 = Book.create!(
-  title: "The Pragmatic Programmer",
-  author: "Andrew Hunt & David Thomas",
-  isbn: "9780135957059",
-  cover: "https://covers.openlibrary.org/b/id/8231991-L.jpg",
-  description: "A classic programming book about pragmatic practices."
+  title: "Naruto",
+  author: "Masashi Kishimoto",
+  isbn: "9781569319000",
+  cover: "https://covers.openlibrary.org/b/isbn/9781569319000.jpg",
+  description: "The beginning of Naruto's journey — a young ninja with a dream."
 )
 
 book2 = Book.create!(
-  title: "Clean Code",
-  author: "Robert C. Martin",
-  isbn: "9780132350884",
-  cover: "https://covers.openlibrary.org/b/id/8155416-L.jpg",
-  description: "How to write clean and maintainable code."
+  title: "Boccher rock",
+  author: "bochi rock",
+  isbn: "9781569319000",
+  cover: "https://upload.wikimedia.org/wikipedia/en/0/08/Bocchi_The_Rock%21_volume_1_cover.jpg",
+  description: "bochi the"
+)
+
+book3 = Book.create!(
+  title: "Fullmetal Alchemist",
+  author: "Hiromu Arakawa",
+  isbn: "1421541955 ",
+  cover: "https://covers.openlibrary.org/b/isbn/1421541955.jpg",
+  description: "Edward and Alphonse Elric begin their alchemical journey after tragedy strikes."
+)
+
+book4 = Book.create!(
+  title: "Attack on Titan",
+  author: "Hajime Isayama",
+  isbn: "9781612620244",
+  cover: "https://covers.openlibrary.org/b/isbn/9781612620244-L.jpg",
+  description: "Humanity fights for survival as colossal Titans threaten their existence."
+)
+
+book5 = Book.create!(
+  title: "Death Note",
+  author: "Tsugumi Ohba & Takeshi Obata",
+  isbn: "1421539640",
+  cover: "https://covers.openlibrary.org/b/isbn/1421539640.jpg",
+  description: "Light Yagami discovers a notebook that allows him to kill by writing names."
+)
+
+book6 = Book.create!(
+  title: "Mein Kampf",
+  author: "Adolf Hitler",
+  isbn: "9780977476077",
+  cover: "https://blackwells.co.uk/jacket/500x500/9781682043776.jpg",
+  description: "Auf der heide bluht ein kleines blumelein"
 )
 
 # Add copies for each book
