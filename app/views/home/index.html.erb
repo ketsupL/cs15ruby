@@ -1,4 +1,19 @@
-<h1>Welcome </h1>
-<p>dugay kaayo nahuman setup</p>
+<div class="flex flex-col min-h-screen items-center justify-center gap-8">
+    <h1 class="text-6xl font-black text-red-400">Welcome to CS15 Bookstore</h1>
+    
+    <% if user_signed_in? %>
+        <p>Hello, User!</p>
+        <%= button_to 'Log out', 
+            destroy_user_session_path, 
+            method: :delete,
+            class: "px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-700 
+                focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition" %>
+    <% else %>
+        <%= button_to "Sign In", 
+            new_user_session_path, 
+            method: :get, 
+            class: "px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-700 
+                focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition" %>
+    <% end %>
 
-<%= button_to "Sign In", new_user_session_path, method: :get, class: "btn btn-primary" %>
+</div>

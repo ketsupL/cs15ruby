@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_01_072829) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_05_094820) do
+  create_table "book_copies", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "copy_number"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_copies_on_book_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "isbn"
+    t.string "cover"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rental_items", force: :cascade do |t|
+    t.integer "rental_id", null: false
+    t.integer "book_copy_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_copy_id"], name: "index_rental_items_on_book_copy_id"
+    t.index ["rental_id"], name: "index_rental_items_on_rental_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "rented_at"
+    t.datetime "due_date"
+    t.datetime "returned_at"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -22,4 +61,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_01_072829) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "book_copies", "books"
+  add_foreign_key "rental_items", "book_copies"
+  add_foreign_key "rental_items", "rentals"
+  add_foreign_key "rentals", "users"
 end
