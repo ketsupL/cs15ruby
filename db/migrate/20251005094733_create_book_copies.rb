@@ -3,7 +3,6 @@ class CreateBookCopies < ActiveRecord::Migration[8.0]
     create_table :book_copies do |t|
       t.references :book, null: false, foreign_key: true
       t.integer :copy_number
-      t.integer :status, default: 0, null: false
 
       t.timestamps
     end
