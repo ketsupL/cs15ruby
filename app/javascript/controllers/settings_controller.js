@@ -1,19 +1,21 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["modal", "confirmInput", "deleteButton"]
+  static targets = ["modal", "confirmInput", "deleteButton", "deleteForm"]
 
   connect() {
-    console.log("Settings controller connected")
+    console.log("Settings controller connected", this.element)
+    // Ensure the delete button starts disabled
+    if (this.hasDeleteButtonTarget) {
+      this.deleteButtonTarget.disabled = true
+    }
   }
 
   showDeleteModal(event) {
     event.preventDefault()
     this.modalTarget.classList.remove("hidden")
-    // Focus on the confirmation input
-    setTimeout(() => {
-      this.confirmInputTarget.focus()
-    }, 100)
+    // Don't auto-focus to prevent browser warnings
+    // User can manually click the input field
   }
 
   hideDeleteModal(event) {
@@ -54,9 +56,19 @@ export default class extends Controller {
     }
 
     // If we get here, let the form submit
-    const button = event.target
-    button.textContent = "Deleting Account..."
+    const button = this.deleteButtonTarget
+    const originalText = button.value
+    button.value = "Deleting Account..."
     button.disabled = true
+    
+    // Set a timeout to reset the button if something goes wrong
+    setTimeout(() => {
+      if (button.value === "Deleting Account...") {
+        button.value = originalText
+        button.disabled = false
+        console.error("Delete operation timed out - resetting button")
+      }
+    }, 10000) // Reset after 10 seconds if no response
     
     return true
   }
