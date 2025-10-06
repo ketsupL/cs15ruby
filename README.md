@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Changelog
+
+This is the part where we put the date, and what we added to the webpage
+
+- [2025-10-06T12:32:14+08:00]Added Comprehensive Settings page 
