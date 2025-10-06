@@ -9,49 +9,19 @@ export default class extends Controller {
 
   showDeleteModal(event) {
     event.preventDefault()
-    const modal = this.modalTarget
-    const modalContent = modal.querySelector('.relative')
-    
-    // Show modal with fade-in effect
-    modal.classList.remove("hidden")
-    modal.classList.add("opacity-0")
-    modalContent.classList.add("scale-95")
-    
-    // Force reflow then animate in
-    modal.offsetHeight
-    modal.classList.remove("opacity-0")
-    modal.classList.add("opacity-100", "transition-opacity", "duration-300", "ease-out")
-    modalContent.classList.remove("scale-95")
-    modalContent.classList.add("scale-100")
-    
-    // Focus on the confirmation input after animation
+    this.modalTarget.classList.remove("hidden")
+    // Focus on the confirmation input
     setTimeout(() => {
       this.confirmInputTarget.focus()
-    }, 150)
+    }, 100)
   }
 
   hideDeleteModal(event) {
     event.preventDefault()
-    const modal = this.modalTarget
-    const modalContent = modal.querySelector('.relative')
-    
-    // Fade out animation
-    modal.classList.remove("opacity-100")
-    modal.classList.add("opacity-0", "transition-opacity", "duration-200", "ease-in")
-    modalContent.classList.remove("scale-100")
-    modalContent.classList.add("scale-95")
-    
-    // Hide after animation completes
-    setTimeout(() => {
-      modal.classList.add("hidden")
-      modal.classList.remove("opacity-0", "transition-opacity", "duration-200", "ease-in")
-      modalContent.classList.remove("scale-95")
-      modalContent.classList.add("scale-100")
-      
-      // Reset form state
-      this.confirmInputTarget.value = ""
-      this.deleteButtonTarget.disabled = true
-    }, 200)
+    this.modalTarget.classList.add("hidden")
+    // Reset form state
+    this.confirmInputTarget.value = ""
+    this.deleteButtonTarget.disabled = true
   }
 
   validateConfirmation(event) {
