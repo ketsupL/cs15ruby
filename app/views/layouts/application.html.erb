@@ -33,7 +33,7 @@
               <% if user_signed_in? %>
                 <%= button_to "Home", root_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
                 <%= button_to "Browse", books_index_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
-                <%= button_to "My Rentals", "#", method: :get, class: "text-gray-100 text-sm hover:text-white cursor-pointer" %>
+                <%= button_to "My Rentals", rentals_path, method: :get, class: "text-gray-100 text-sm hover:text-white cursor-pointer" %>
                 <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "text-gray-100 hover:text-white cursor-pointer" %>
               <% else %>
                 <%= button_to "Sign In", new_user_session_path, method: :get, class: "text-gray-100 hover:text-white cursor-pointer" %>
@@ -44,6 +44,7 @@
 
       <main class="flex-1 mx-auto px-6 pt-16 pb-8">
         <%= yield %>
+        <turbo-frame id="modal"></turbo-frame>
       </main>
 
 

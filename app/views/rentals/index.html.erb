@@ -1,4 +1,40 @@
-<div>
-  <h1 class="font-bold text-4xl">Rentals#index</h1>
-  <p>Find me in app/views/rentals/index.html.erb</p>
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <h1 class="text-red-400 font-black text-4xl mb-8">My Rentals</h1>
+
+  <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <% @rentals.each do |rental| %>
+      <div class="p-4 rounded shadow-md flex flex-col overflow-hidden bg-white h-full">
+
+        <% rental_item = rental.rental_items.first %>
+        <% book = rental_item.book_copy.book %>
+
+        <% if book.cover.present? %>
+          <img src="<%= book.cover %>" alt="<%= book.title %> cover" class="h-full w-full object-cover rounded mb-4">
+        <% end %>
+
+        <h2 class="text-red-400 font-bold text-md mb-1 truncate" title="<%= book.title %>"><%= book.title %></h2>
+        <p class="text-gray-700 text-xs mb-3 truncate" title="<%= book.author %>"><%= book.author %></p>
+
+        <div class="flex flex-col gap-2 mt-auto">
+          <p class="text-xs"><strong>Status:</strong>
+            <span class="<%= 'text-green-500' if rental.active? %>
+                         <%= 'text-gray-500' if rental.returned? %>
+                         <%= 'text-red-500' if rental.overdue? %>">
+              <%= rental.status.humanize %>
+            </span>
+          </p>
+          <p class="text-xs"><strong>Due Date:</strong> <%= rental.due_date&.strftime("%b %d, %Y") || "-" %></p>
+
+          <% if rental.active? %>
+            <%= link_to "Return",
+              return_rental_path(rental),
+              method: :patch,
+              data: { turbo_confirm: "Are you sure you want to return this book?" },
+              class: "px-4 py-1 bg-red-400 text-xs text-white rounded-lg shadow hover:bg-red-500 
+                     focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

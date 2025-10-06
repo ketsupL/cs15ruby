@@ -5,6 +5,7 @@ class CreateRentals < ActiveRecord::Migration[8.0]
       t.datetime :rented_at
       t.datetime :due_date
       t.datetime :returned_at
+      t.integer :status, default: 0
 
       t.timestamps
     end

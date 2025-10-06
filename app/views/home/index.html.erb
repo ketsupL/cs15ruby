@@ -3,9 +3,9 @@
     
     <% if user_signed_in? %>
         <p>Hello, User!</p>
-        <%= button_to 'Log out', 
-            destroy_user_session_path, 
-            method: :delete,
+        <%= button_to 'Browse Books', 
+            books_index_path, 
+            method: :get,
             class: "px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-700 
                 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition" %>
     <% else %>

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get "rentals/index"
+  resources :rentals, only: [:index, :new, :create, :show]
+  resources :rentals do
+    member do
+      get :return
+      patch :perform_return
+    end
+  end
   get "books/index"
 
   root "home#index"

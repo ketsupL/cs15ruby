@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Naruto",
+    "author": "Masashi Kishimoto",
+    "isbn": "9781569319000",
+    "cover": "https://covers.openlibrary.org/b/isbn/9781569319000.jpg",
+    "description": "The beginning of Naruto's journey — a young ninja with a dream."
+  },
+  {
+    "title": "Boccher rock",
+    "author": "bochi rock",
+    "isbn": "9781569319000",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/08/Bocchi_The_Rock%21_volume_1_cover.jpg",
+    "description": "Boccher is not a girl. Boccher is an entity. A pink cryptid spawned from a thousand hours of bedroom guitar practice and zero hours of talking to another human being. Her power level is immeasurable. She can shred riffs so violently that time dilates, but if you ask her to introduce herself she immediately transforms into a JPEG artifact and slides under the nearest table."
+  },
+  {
+    "title": "Fullmetal Alchemist",
+    "author": "Hiromu Arakawa",
+    "isbn": "1421541955",
+    "cover": "https://covers.openlibrary.org/b/isbn/1421541955.jpg",
+    "description": "Edward and Alphonse Elric begin their alchemical journey after tragedy strikes."
+  },
+  {
+    "title": "Attack on Titan",
+    "author": "Hajime Isayama",
+    "isbn": "9781612620244",
+    "cover": "https://covers.openlibrary.org/b/isbn/9781612620244-L.jpg",
+    "description": "Humanity fights for survival as colossal Titans threaten their existence."
+  },
+  {
+    "title": "Death Note",
+    "author": "Tsugumi Ohba & Takeshi Obata",
+    "isbn": "1421539640",
+    "cover": "https://covers.openlibrary.org/b/isbn/1421539640.jpg",
+    "description": "Light Yagami discovers a notebook that allows him to kill by writing names."
+  }
+]
