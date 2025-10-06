@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
   get "books/index"
+  get "settings", to: "settings#show"
+  delete "settings", to: "settings#destroy"
 
   root "home#index"
 
