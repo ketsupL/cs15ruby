@@ -163,7 +163,7 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
-"@tailwindcss/cli@^4.1.14":
+"@tailwindcss/cli@4.1.14":
   version "4.1.14"
   resolved "https://registry.yarnpkg.com/@tailwindcss/cli/-/cli-4.1.14.tgz#1c71e11b919667457d154545ba5b8d82c55c537e"
   integrity sha512-2cErQRcsI8jIObUMVwcd1H2AWgGxwzozHJk7AKM2KB1taOp7L15xQ8kEsZrvVbOjNrb8yXtnSvNtJ+mhCB7EBg==
