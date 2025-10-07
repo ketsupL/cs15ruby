@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   resources :rentals, only: [:index, :new, :create, :show]
+  
   resources :rentals do
     member do
       get :return
       patch :perform_return
     end
   end
+
   get "books/index"
+
   get "settings", to: "settings#show"
+
   delete "settings", to: "settings#destroy"
 
   root "home#index"

@@ -23,10 +23,8 @@ class RentalsController < ApplicationController
       
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.replace("modal", "") # clear the modal
+          render turbo_stream: turbo_stream.replace("modal", "<script>window.location.reload()</script>")
         end
-
-        format.html { redirect_to rental, notice: "You have rented '#{book.title}' successfully!" }
       end
 
     rescue StandardError => e
