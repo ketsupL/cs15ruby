@@ -1,30 +1,112 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
 
-Things you may want to cover:
+## 🚀 How to Run This Project
 
-* Ruby version
+### 🧰 Prerequisites
 
-* System dependencies
+Make sure you have the following before getting started:
 
-* Configuration
+* **VS Code** (or any IDE of your choice)
+* **At least 2–3 GB of free storage space**
+* **Internet connection** (optional, but recommended)
 
-* Database creation
+---
 
-* Database initialization
+### 🖥️ Setting Up WSL (Windows Subsystem for Linux)
 
-* How to run the test suite
+> **Note:** These instructions are for users on **Windows** without WSL or Ubuntu installed.
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Open **Windows Search**, type **PowerShell**, and **Run as Administrator**.
+2. Install Ubuntu 24.04 by running:
 
-* Deployment instructions
+   ```bash
+   wsl --install --distribution Ubuntu-24.04
+   ```
 
-* ...
+---
 
-# Changelog
+### 🧱 Setting Up Dependencies
 
-This is the part where we put the date, and what we added to the webpage
+Once inside Ubuntu (WSL terminal), run the following commands:
 
-- [2025-10-06T12:32:14+08:00]Added Comprehensive Settings page 
+```bash
+sudo apt update
+sudo apt install build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev -y
+curl https://mise.run | sh
+echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+source ~/.bashrc
+mise use -g ruby@3
+```
+
+#### ✅ Verify Ruby Installation
+
+```bash
+ruby --version
+```
+
+---
+
+### ⚙️ Installing Rails
+
+Install Rails using:
+
+```bash
+gem install rails
+```
+
+Then verify:
+
+```bash
+rails --version
+```
+
+---
+
+### 📂 Cloning the Repository
+
+1. Open **VS Code** (or your preferred IDE).
+2. Clone this repository:
+
+   ```bash
+   git clone <REPOSITORY_URL>
+   ```
+3. Move the cloned folder to:
+
+   ```
+   \\wsl.localhost\Ubuntu-24.04\home\<USER>\
+   ```
+4. If prompted for permission, **allow access**.
+
+---
+
+### ▶️ Running the Application
+
+1. In VS Code (or your IDE), open the integrated terminal.
+2. Make sure the terminal is set to **WSL / Ubuntu-24.04**.
+3. Install required gems:
+
+   ```bash
+   bundle install
+   ```
+4. Start the development server:
+
+   ```bash
+   bin/dev
+   ```
+
+If you encounter a **permission denied** error, run:
+
+```bash
+chmod +x bin/dev
+```
+
+Then try again:
+
+```bash
+bin/dev
+```
+
+Everything should now be running smoothly 🎉
+
+---
