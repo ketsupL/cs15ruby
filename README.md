@@ -1,6 +1,3 @@
-
----
-
 ## 🚀 How to Run This Project
 
 ### 🧰 Prerequisites
@@ -80,33 +77,66 @@ rails --version
 
 ---
 
-### ▶️ Running the Application
+### 🧩 Setting Up the Project
 
 1. In VS Code (or your IDE), open the integrated terminal.
 2. Make sure the terminal is set to **WSL / Ubuntu-24.04**.
-3. Install required gems:
+3. Navigate to the project folder:
+
+   ```bash
+   cd ~/project-folder-name
+   ```
+4. Install required gems:
 
    ```bash
    bundle install
    ```
-4. Start the development server:
 
-   ```bash
-   bin/dev
-   ```
+---
 
-If you encounter a **permission denied** error, run:
+### 🗃️ Database Setup
+
+Run the following commands to set up your database:
 
 ```bash
-chmod +x bin/dev
+rails db:migrate
+rails db:seed
+```
+
+If you encounter a **permission denied** error for these commands, make the scripts executable first:
+
+```bash
+chmod +x bin/rails
+chmod +x bin/rake
 ```
 
 Then try again:
 
 ```bash
+rails db:migrate
+rails db:seed
+```
+
+---
+
+### ▶️ Running the Application
+
+Start the development server:
+
+```bash
 bin/dev
 ```
 
-Everything should now be running smoothly 🎉
+If it gives you an **access denied** error, run:
 
----
+```bash
+chmod +x bin/dev
+```
+
+Then start it again:
+
+```bash
+bin/dev
+```
+
+If everything goes smoothly, the project should now be running locally 🎉
