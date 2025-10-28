@@ -61,4 +61,4 @@ gem "cssbundling-rails", "~> 1.4"
 
 gem "tailwindcss-ruby", "~> 4.1"
 
-gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-rails", "~> 4.4"
